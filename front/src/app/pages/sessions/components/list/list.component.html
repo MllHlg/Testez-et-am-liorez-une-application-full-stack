@@ -3,7 +3,7 @@
     <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
       <mat-card-title class="m0">Rentals available</mat-card-title>
       @if (user!.admin) {
-      <button mat-raised-button color="primary" routerLink="create">
+      <button mat-raised-button color="primary" routerLink="create" data-testid="add-button">
         <mat-icon>add</mat-icon>
         <span class="ml1">Create</span>
       </button>
@@ -32,7 +32,7 @@
             <span class="ml1">Detail</span>
           </button>
           @if (user!.admin) {
-          <button mat-raised-button color="primary" [routerLink]="['update', session.id]">
+          <button mat-raised-button color="primary" [routerLink]="['update', session.id]" data-testid="edit-button">
             <mat-icon>edit</mat-icon>
             <span class="ml1">Edit</span>
           </button>

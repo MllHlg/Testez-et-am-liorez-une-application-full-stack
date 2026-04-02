@@ -28,5 +28,26 @@ Object.defineProperty(document.body.style, 'transform', {
   },
 });
 
+const originalConsoleError = console.error;
+console.error = function (...args) {
+  const isCssError = args.some((arg) => {
+    if (!arg) return false;
+    
+    const argStr = arg.toString();
+    const msgStr = arg.message || '';
+    
+    return (
+      argStr.includes('Could not parse CSS stylesheet') ||
+      msgStr.includes('Could not parse CSS stylesheet')
+    );
+  });
+
+  if (isCssError) {
+    return;
+  }
+
+  originalConsoleError(...args);
+};
+
 /* output shorter and more meaningful Zone error stack traces */
 // Error.stackTraceLimit = 2;
