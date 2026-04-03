@@ -44,6 +44,7 @@
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@jsdevtools/coverage-istanbul-loader": "^3.0.5",
     "@types/jest": "^30.0.0",
+    "@types/node": "^25.5.1",
     "@typescript-eslint/eslint-plugin": "^8.44.0",
     "@typescript-eslint/parser": "^8.44.0",
     "cypress": "^15.2.0",
@@ -54,5 +55,12 @@
     "jest-marbles": "^3.1.1",
     "nyc": "^17.1.0",
     "webpack": "^5.101.3"
+  },
+  "nyc": {
+    "report-dir": "coverage/cypress",
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
   }
 }
